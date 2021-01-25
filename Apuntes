@@ -7,6 +7,7 @@ III. CRUD
 IV. Registro
 V. Login
 VI. Navigation
+VII. Desplegar
 ____________________________________________________________________________________________________________________________________________
 
 0. CREAR PROYECTO
@@ -116,6 +117,10 @@ VI. Navigation
     5. ver views/partials/navigation                Dependiendo de si está logueado, ve unas cosas u otras
 
 ____________________________________________________________________________________________________________________________________________
+
+VII. Desplegar: Heroku (hosting para el backend) 
+
+    1.
 
 
 APÉNDICE. ERRORES NO RESUELTOS
