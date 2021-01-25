@@ -1,0 +1,123 @@
+1.27.15
+
+SUMARIO
+I. Backend
+II. Views (template engine)
+III. CRUD
+IV. Registro
+V. Login
+VI. Navigation
+____________________________________________________________________________________________________________________________________________
+
+0. CREAR PROYECTO
+
+    1.  Terminal: npm init => Inicializa el proyecto y crea el package.json
+    2. Instalación de módulos:
+            npm i express (framework de Node para facilitar la creación de servidores)
+            npm i express-handlebars (motor de plantillas)
+            npm i express-session (permite trabajar con distintas sesiones de usuarios)
+            npm i method-override (extiende las funcionalidades de los formularios)
+            npm i mongoose (módulo para conectar Node con Mongodb)
+            npm i passport (módulos para autentificación)
+            npm i passport-local (módulos para autentificación)
+            npm i bcryptjs (módulo para encriptar contraseñas)
+            npm i connect-flash (módulo para mensajes flash)
+            npm i nodemon -D (ayuda al desarrollo: permite arrancar y apagar el servidor más fácilmente. En package.json:
+                                "scripts": {
+                                    "dev": "nodemon src/index.js"
+                                },
+                            ahora arrancaremos el proyecto con npm run dev)
+    3. Estructura de carpetas:
+            src >
+                config > (configuración del proyecto)
+                        passport.js
+                helpers> (Opcional - para funciones adicionales que pudiera usar nuestro servidor)  
+                        auth.js 
+                models > (para almacenar las plantillas que tendrán nuestros datos en la base de datos)
+                        Note.js
+                        User.js
+                public > (para archivos estátivos como fuentes, imágenes....)
+                        css >
+                            main.css (para estilos)
+                        img
+                routes > (para las rutas de nuestro servidor)
+                        index.js
+                        users.js
+                        notes.js
+                views >   (para archivos de la vista HTML)
+                        index.hbs
+                        about.hbs
+                        layouts > main.hbs
+                        users > signin.hbs          signup.hbs
+                        notes > new-note.hbs        all-notes.hbs       edit-note.hbs
+                        partials > messages.hbs     errors.hbs
+
+____________________________________________________________________________________________________________________________________________
+
+I. Backend
+
+    1. ver src/index.js         puntosn 1-13
+    2. ver routes/index.js      puntos: 1-4
+    3. ver routes/users.js      puntos: 1-2
+    4. ver database.js          puntos: 1-3
+____________________________________________________________________________________________________________________________________________
+
+II. Vistas
+
+    1. ver routes/index.js      puntos: 5
+    2. views/layouts/main.hbs   puntos: 1-2
+    3. Escribir el HTML de todas las vistas según necesidades
+
+____________________________________________________________________________________________________________________________________________
+
+III. CRUD
+
+    1. ver routes/notes.js          puntos: 1-7 (CREATE)
+    2. Crear formulario en routes/notes/new-notes
+    3. Crear los modelos de datos que irán a la base de datos: (recuerda que estos archivos son clases, así que van en mayúscula)
+        ver models/Note.js          puntos: 1-4
+    4. ver routes/notes.js          puntos: 8-9 (READ)
+    5. ver routes/notes.js          puntos: 10-13 (UPDATE)
+    6. ver views/notes/edit-note.hbs
+    7. ver routes/notes.js          puntos: 14 (DELETE)
+    8. ver views/notes/all-note.hbs
+    9. (Opcional: mensajes flash)
+        -9.1: ver src/index.js      puntos: 13-15
+        -9.2: ver routes/notes.js   puntos: 15-17
+        -9.3: ver views/partials/messages.hbs (permite config partes que a las que todas las vistas handlebars pueden acceder)
+        -9.4: ver views/layouts/main.hbs 
+
+____________________________________________________________________________________________________________________________________________
+
+IV. Registro 
+
+    1. ver routes/users.js          puntos: 1-5
+    2. ver views/users/signup       
+    3. ver models/User.js           puntos: 1-7
+    4. ver routes/users.js          puntos: 6-9
+____________________________________________________________________________________________________________________________________________
+
+V. Iniciar Sesión (PASSPORT module)
+
+    1. ver views/users/signin
+    2. ver config/passport.js       puntos: 1-9
+    3. ver src/index.js             puntos: 16-19
+    4. ver routes/users.js          puntos: 10-11
+    5. ver routes/users.js          puntos: 12
+
+____________________________________________________________________________________________________________________________________________
+
+VI. Navigation
+
+    1. ver views/partials/navigation.hbs            crea la navegación a través de la página
+    2. ver helpers/auth.js                          objeto para autenticar sesión de usuario
+    3. ver routes/notes             puntos: 18      añadir autenticación a las rutas
+    4. ver src/index.js             puntos: 20      mensaje de bienvenida
+    5. ver views/partials/navigation                Dependiendo de si está logueado, ve unas cosas u otras
+
+____________________________________________________________________________________________________________________________________________
+
+
+APÉNDICE. ERRORES NO RESUELTOS
+
+VI. 4. Hago user variable global pero no he definido cómo saludar al inicio. La solución del video es bastante trapera
